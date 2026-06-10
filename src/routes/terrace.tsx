@@ -145,7 +145,7 @@ function Plan({ city }: { city: string }) {
       </div>
 
       <PlanCard icon={Sprout} title="Suitable crops" tags={["Cherry tomato", "Basil", "Mint", "Spinach", "Chili", "Lemongrass"]} />
-      <PlanCard icon={Droplets} title="Watering frequency" body="Water every morning during summer; reduce to alternate days as humidity rises. Containers under 8\" dry faster — check by feel." />
+      <PlanCard icon={Droplets} title="Watering frequency" body={'Water every morning during summer; reduce to alternate days as humidity rises. Containers under 8" dry faster — check by feel.'} />
       <PlanCard icon={Leaf} title="Care tips" body="Rotate pots weekly for even sun. Prune basil tops to encourage bushy growth. Stake tomatoes early before flowering." />
       <PlanCard icon={FlaskConical} title="Fertilizer" body="Liquid seaweed every 2 weeks for greens. Compost top-dressing monthly. For fruiting plants, add a potassium boost at flowering." />
       <PlanCard icon={CalendarDays} title="Seasonal advice" body="Heat is your biggest variable this season. Mulch generously and shade tender greens during midday peaks." />
