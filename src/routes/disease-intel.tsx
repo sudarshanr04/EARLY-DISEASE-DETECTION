@@ -46,9 +46,9 @@ import {
 const API_BASE = (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? "http://localhost:8000";
 
 export const Route = createFileRoute("/disease-intel")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    disease: (search.disease as string) ?? "",
-    confidence: Number(search.confidence) || 0,
+  validateSearch: (search: Record<string, unknown>): { disease?: string; confidence?: number } => ({
+    disease: (search.disease as string) || undefined,
+    confidence: search.confidence ? Number(search.confidence) : undefined,
   }),
   head: () => ({
     meta: [

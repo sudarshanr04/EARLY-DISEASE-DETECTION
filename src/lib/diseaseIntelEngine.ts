@@ -53,13 +53,12 @@ export interface DiseaseKB {
 
 export type SpreadRisk = "Low" | "Moderate" | "High";
 
-export interface DayRiskForecast {
-  date: string;
-  dayLabel: string;
+export interface DayRiskForecast extends DailyForecast {
   risk: SpreadRisk;
   riskScore: number;  // 0–100, used for visual indicator
   reasons: string[];
 }
+
 
 export interface TreatmentTimingAdvice {
   title: string;

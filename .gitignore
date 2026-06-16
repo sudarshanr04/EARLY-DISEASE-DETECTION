@@ -33,3 +33,5 @@ dist-ssr
 
 # ML Models
 backend/models/
+
+.env.local
