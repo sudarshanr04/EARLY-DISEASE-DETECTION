@@ -1,4 +1,8 @@
-# Logs
+
+
+
+
+...¸¸# Logs
 logs
 *.log
 npm-debug.log*
@@ -35,3 +39,6 @@ dist-ssr
 backend/models/
 
 .env.local
+
+
+.dev.vars
