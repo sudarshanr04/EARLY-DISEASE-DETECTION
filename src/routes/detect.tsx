@@ -132,7 +132,7 @@ function DetectPage() {
       setStatus("error");
       if (err instanceof TypeError && err.message.includes("fetch")) {
         setErrorMessage(
-          "Cannot reach the TerraLeaf backend. Make sure the Python server is running on port 8000."
+          "Cannot reach the TerraLeaf backend. Please try again later."
         );
       } else {
         setErrorMessage((err as Error).message ?? "An unexpected error occurred.");

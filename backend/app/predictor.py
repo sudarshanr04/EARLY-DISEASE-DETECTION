@@ -57,7 +57,7 @@ def load_model_assets() -> None:
     if not CLASS_MAP_PATH.exists():
         raise FileNotFoundError(
             f"Class-index map not found: {CLASS_MAP_PATH}. "
-            "Place class_indices.json at the path specified by CLASS_MAP_PATH."
+            "Place class_names.json at the path specified by CLASS_MAP_PATH."
         )
 
     logger.info("Loading class-index map from: %s", CLASS_MAP_PATH)

@@ -20,7 +20,7 @@ from fastapi.responses import JSONResponse
 
 from app import predictor
 from app.routers import weather
-from app.config import ALLOWED_ORIGINS, APP_DESCRIPTION, APP_NAME, APP_VERSION
+from app.config import ALLOWED_ORIGINS, APP_DESCRIPTION, APP_NAME, APP_VERSION, MODEL_PATH, CLASS_MAP_PATH
 from app.schemas import (
     ErrorDetail,
     HealthResponse,
@@ -57,19 +57,21 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     On shutdown: log a clean shutdown message (Keras handles its own cleanup).
     """
     logger.info("Starting %s v%s …", APP_NAME, APP_VERSION)
+    logger.info("MODEL_PATH: %s", MODEL_PATH)
+    logger.info("CLASS_MAP_PATH: %s", CLASS_MAP_PATH)
     try:
         predictor.load_model_assets()
         logger.info("Model assets loaded — API is ready to serve requests.")
     except FileNotFoundError as exc:
         logger.error("Startup failed — model file missing: %s", exc)
         logger.error(
-            "Place model.keras and class_indices.json in the models/ directory "
+            "Place plant_disease_model.keras and class_names.json in the models/ directory "
             "and restart the server."
         )
-        # We intentionally do NOT re-raise here so the server still starts and
-        # the /health endpoint can surface the degraded state to a load balancer.
+        raise exc
     except Exception as exc:
         logger.exception("Startup failed with unexpected error: %s", exc)
+        raise exc
 
     yield
 
