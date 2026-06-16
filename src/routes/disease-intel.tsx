@@ -43,7 +43,7 @@ import {
 
 // ── Route definition ─────────────────────────────────────────────────────────
 
-const API_BASE = (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? "http://localhost:8000";
+const API_BASE = "https://early-disease-detection-heot.onrender.com";
 
 export const Route = createFileRoute("/disease-intel")({
   validateSearch: (search: Record<string, unknown>): { disease?: string; confidence?: number } => ({
